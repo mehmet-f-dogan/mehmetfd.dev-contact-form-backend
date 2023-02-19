@@ -12,9 +12,9 @@ This is a simple Node.js server that provides an API for accepting and storing c
 
 ## Usage
 
-To start the server, run node index.js <port> where <port> is the port number to listen on.
+To start the server, run `PORT=<port> node index.js` where <port> is the port number to listen on.
 
-For example, to listen on port 3000, run node index.js 3000.
+For example, to listen on port 3000, run `PORT=3000 node index.js`.
 
 ## API
 
