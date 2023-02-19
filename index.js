@@ -14,18 +14,18 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
-app.post("/", (request, response) => {
+app.post("/contact", (request, response) => {
   const fs = require("fs");
-  let body = request.json({ requestBody: req.body });
-  let stringToAppend = "===========================";
+  let body = request.body;
+  let stringToAppend = "===========================\n";
   stringToAppend += body.name + "\n";
   stringToAppend += body.email + "\n";
   stringToAppend += body.subject + "\n";
   stringToAppend += body.message + "\n";
-  stringToAppend += "===========================";
+  stringToAppend += "===========================\n";
   fs.appendFileSync("contact.txt", stringToAppend);
-  fs.close();
   response.status(200);
+  response.end();
 });
 
 app.listen(PORT);
