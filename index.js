@@ -1,10 +1,4 @@
-let PORT = -1;
-
-process.argv.forEach(function (val, index, _) {
-  if (index == 2) {
-    PORT = Number(val);
-  }
-});
+const PORT = process.env.PORT || -1;
 
 if (PORT < 1) {
   throw new Error("Invalid port");
@@ -28,4 +22,6 @@ app.post("/contact", (request, response) => {
   response.end();
 });
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
